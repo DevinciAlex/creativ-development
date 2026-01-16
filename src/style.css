@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+.app-root {
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  display: block;
+}
+
+.bg-canvas,
+.bg-component {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+#cover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25rem;
+  height: 25rem;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  outline: 4px solid white;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.fit-cover {
+  background-size: cover;
+  background-position: center;
+}
+
+.fit-contain {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Force tout le contenu du cover à se caler sur le carré (utile pour Smoke) */
+#cover canvas,
+#cover > div,
+#cover .frozen,
+#cover .frozen * {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.cover-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.frozen-container {
+  position: absolute;
+  inset: 0;
+}
+
+.frozen-image {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+}
+
+.chevron {
+  position: absolute;
+  top: 50%;
+  font-size: 3rem;
+  color: white;
+  z-index: 10;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.chevron.left {
+  left: 2rem;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.chevron.right {
+  right: 2rem;
+}
+
+.weedusaur,
+.lorenzo {
+  position: absolute;
+  width: 15rem;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.weedusaur {
+  bottom: 40%;
+  left: 20%;
+}
+
+.lorenzo {
+  top: 70%;
+  left: 20%;
+}
+
+.cover-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; /* n'interfère pas avec le drag */
+}
+
+/* Titre centré */
+.cover-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+  z-index: 1000 !important;
+}
+
+/* Image en bas à gauche */
+.cover-image {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  width: 4.5rem;
+  height: auto;
+  opacity: 0.95;
+}
+
+#cover .hide-live canvas {
+  display: none !important;
+}
